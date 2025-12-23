@@ -24,9 +24,25 @@ function bubbleSort(nums) {
   return nums;
 }
 
+function insertionSort(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    snapshot(nums);
+    let current = nums[i];
+    let j = i - 1;
+
+    while (j >= 0 && nums[j] > current) {
+      nums[j + 1] = nums[j];
+      j--;
+    }
+    nums[j + 1] = current;
+  }
+  return nums;
+}
+
 function sort(array) {
   // do cool stuff here
-  bubbleSort(array);
+  // bubbleSort(array);
+  insertionSort(array);
   // call snapshot any time you do anything to the array
   // it's okay if you call it with duplicate value array,
   // it will deduplicate for you
