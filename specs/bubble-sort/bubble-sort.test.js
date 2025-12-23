@@ -13,16 +13,18 @@
 function bubbleSort(nums) {
   // Loop through the array
   const length = nums.length;
+  let iterations = 0;
   let swapped;
   do {
     swapped = false;
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < length - iterations; i++) {
       // if current number is bigger than the next, do swap
       if (nums[i] > nums[i + 1]) {
         [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
         swapped = swapped ? swapped : true;
       }
     }
+    iterations++;
   } while (swapped == true);
   return nums;
 }
