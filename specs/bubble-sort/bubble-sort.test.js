@@ -11,12 +11,25 @@
 */
 
 function bubbleSort(nums) {
-  // code goes here
+  // Loop through the array
+  const length = nums.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < length; i++) {
+      // if current number is bigger than the next, do swap
+      if (nums[i] > nums[i + 1]) {
+        [nums[i], nums[i + 1]] = [nums[i + 1], nums[i]];
+        swapped = swapped ? swapped : true;
+      }
+    }
+  } while (swapped == true);
+  return nums;
 }
 
 // unit tests
 // do not modify the below code
-test.skip("bubble sort", function () {
+test('bubble sort', function () {
   const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   const sortedNums = bubbleSort(nums);
   expect(sortedNums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
