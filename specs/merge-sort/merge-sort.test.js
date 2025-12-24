@@ -22,6 +22,19 @@ const merge = (a, b) => {
   return [...newArr, ...a.slice(i), ...b.slice(i)];
 };
 
+const mergeV2 = (left, right) => {
+  let result = [];
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+
+  result.concat(left, right);
+};
+
 const mergeSort = (nums) => {
   // code goes here
   if (nums.length == 1) {
