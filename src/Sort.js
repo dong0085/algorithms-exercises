@@ -85,6 +85,7 @@ function getLongestNumber(nums) {
 }
 
 function radixSort(array) {
+  snapshot(array);
   // code goes here
   const longestNumber = getLongestNumber(array);
 
@@ -92,19 +93,20 @@ function radixSort(array) {
 
   for (let i = 0; i < longestNumber; i++) {
     while (array.length) {
+      snapshot(array);
+
       const number = array[0];
       const digit = getDigit(number, i, longestNumber);
       radixArray[digit].push(array.shift());
     }
 
     for (let j = 0; j < radixArray.length; j++) {
-      snapshot(array);
-
       while (radixArray[j].length) {
         array.push(radixArray[j].shift());
       }
     }
   }
+  snapshot(array);
   return array;
 }
 
@@ -122,7 +124,7 @@ function sort(array) {
 
 export default function SortComponent() {
   clear();
-  sort(shuffle(range(30)));
+  sort(shuffle(range(3000, 3030)));
   done();
   return <App />;
 }
