@@ -42,7 +42,7 @@ function insertionSort(nums) {
 function sort(array) {
   // do cool stuff here
   // bubbleSort(array);
-  insertionSort(array);
+  // insertionSort(array);
   // call snapshot any time you do anything to the array
   // it's okay if you call it with duplicate value array,
   // it will deduplicate for you
